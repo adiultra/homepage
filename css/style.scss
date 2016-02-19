@@ -1,0 +1,85 @@
+$main-color: rgb(67, 162, 231);
+$light: rgb(233, 237, 244);
+$dark: rgb(29, 29, 29);
+
+$font-sans: "Open Sans", Arial, sans;
+
+$font-head: "Caviar Dreams";
+
+html{
+    text-align: center;
+
+    font-family: $font-sans;
+    font-size: 120%;
+    font-weight: lighter;
+
+    body{
+        margin: 0;
+
+        background-image: url("../images/back-cover2.jpg");
+        background-repeat: no-repeat;
+        background-position: top;
+        div.header{
+            z-index: 0;
+
+            padding-top: 10%;
+            padding-bottom: 5%;
+
+            color: $light;
+            border-top: solid 16px $main-color;
+            background-color: fade-out($main-color, 0.6);
+
+            h1{
+                margin: 0;
+
+                font-family: $font-head;
+                font-weight: 100;
+                font-size: 6em;
+
+                text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
+            }
+
+            h2{
+                margin: 0;
+
+                font-weight: 100;
+                font-size: 2em;
+            }
+        }
+
+        div.projects{
+            z-index: 1;
+
+            margin-top: -20px;
+
+            background-color: $light;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.33);
+            ul{
+                padding-top: 8%;
+                padding-bottom: 8%;
+
+                list-style: none;
+
+                color: $dark;
+                li{
+                    font-size: 2em;
+                    a{
+                        text-decoration: none;
+
+                        color: $main-color
+                    }
+                }
+            }
+        }
+        div.social{
+            margin-top: -20px;
+            padding-top: 4%;
+            padding-bottom: 2%;
+
+            background-color: $dark;
+            img{
+                height: 12em;
+            }
+        }
+    }
+}
