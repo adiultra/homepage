@@ -1,84 +1,275 @@
-$main-color: rgb(67, 162, 231);
-$light: rgb(233, 237, 244);
-$dark: rgb(29, 29, 29);
+/*
+Created by adiultra for esencia
+*/
 
-$font-sans: "Open Sans", Arial, sans;
 
-$font-head: "Caviar Dreams";
+// ██    ██  █████  ██████  ██  █████  ██████  ██      ███████ ███████
+// ██    ██ ██   ██ ██   ██ ██ ██   ██ ██   ██ ██      ██      ██
+// ██    ██ ███████ ██████  ██ ███████ ██████  ██      █████   ███████
+//  ██  ██  ██   ██ ██   ██ ██ ██   ██ ██   ██ ██      ██           ██
+//   ████   ██   ██ ██   ██ ██ ██   ██ ██████  ███████ ███████ ███████
+
+
+$blue: rgb(28, 162, 237);
+$green: rgb(139, 233, 73);
+$red: rgb(232, 106, 66);
+$cyan: rgb(71, 221, 216);
+$teal: rgb(75, 236, 154);
+$yellow: rgb(245, 231, 106);
+
+$light: rgb(230, 230, 230);
+$grey: rgb(175, 175, 175);
+$white: rgb(255, 255, 255);
+$dark-grey: rgb(31, 33, 34);
+$dark: rgb(30, 37, 45);
+
+$main-color: $blue;
+
+$shadow: rgba(0, 0, 0, 0.25);
+
+$font-sans: "Raleway", "Open Sans", "Roboto", sans;
+
+
+// ███    ███ ██ ██   ██ ██ ███    ██ ███████
+// ████  ████ ██  ██ ██  ██ ████   ██ ██
+// ██ ████ ██ ██   ███   ██ ██ ██  ██ ███████
+// ██  ██  ██ ██  ██ ██  ██ ██  ██ ██      ██
+// ██      ██ ██ ██   ██ ██ ██   ████ ███████
+
+@mixin button($color) {
+    margin: 0% 2%;
+    padding: 1% 2%;
+
+    transition: all 0.2s;
+    text-decoration: none;
+
+    color: #fff;
+    border-radius: 4px;
+
+    border-bottom: solid 0.2em darken($color, 20%);
+    border-radius: 4px;
+    background-color: $color;
+
+    &:hover{
+        box-shadow: 0px 8px 16px $shadow;
+    }
+
+    &:active{
+        background-color: darken($color, 20%);
+    }
+}
+
+@mixin heading($size) {
+    margin: 0;
+    padding: 0;
+
+    font-size: $size;
+    font-weight: normal;
+}
+
+@mixin subheading($size) {
+    @include heading($size);
+    padding: 3% 0%;
+    font-weight: lighter;
+}
+
+
+
+// ███████ ████████ ██    ██ ██      ███████
+// ██         ██     ██  ██  ██      ██
+// ███████    ██      ████   ██      █████
+//      ██    ██       ██    ██      ██
+// ███████    ██       ██    ███████ ███████
+
 
 html{
-    text-align: center;
-
     font-family: $font-sans;
-    font-size: 120%;
-    font-weight: lighter;
-
+    font-size: 1.2em;
     body{
-        margin: 0;
+        margin: 0px;
 
-        background-image: url("../images/back-cover2.jpg");
-        background-repeat: no-repeat;
-        background-position: top;
-        div.header{
-            z-index: 0;
+        .header{
+            padding-top: 1%;
+            padding-bottom: 2%;
 
-            padding-top: 10%;
-            padding-bottom: 5%;
+            text-align: center;
 
-            color: $light;
-            border-top: solid 16px $main-color;
-            background-color: fade-out($main-color, 0.6);
+            color: #fff;
+            border-bottom: 16px solid rgba(55, 55, 55, 0.25);
+            background: $main-color;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 
             h1{
-                margin: 0;
+                @include heading(8em);
 
-                font-family: $font-head;
-                font-weight: 100;
-                font-size: 6em;
-
-                text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
+                font-weight: lighter;
             }
 
-            h2{
-                margin: 0;
-
-                font-weight: 100;
-                font-size: 2em;
-            }
+            h3{ @include heading(1.3em); }
         }
 
-        div.projects{
-            z-index: 1;
+        .menu{
+            position: sticky;
+            top: 0;
 
-            margin-top: -20px;
+            padding: 1%;
 
-            background-color: $light;
-            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.33);
+            background-color: fade-out($white, 0.05);
+            box-shadow: 0px 4px 6px $shadow;
+
             ul{
-                padding-top: 8%;
-                padding-bottom: 8%;
+                margin: 0;
 
                 list-style: none;
 
-                color: $dark;
+                text-align: center;
+
                 li{
-                    font-size: 2em;
+                    display: inline;
+
+                    margin-right: 1%;
+                    margin-left: 1%;
+                    padding: 0;
+
                     a{
                         text-decoration: none;
 
-                        color: $main-color
+                        padding: 1%;
+
+                        color: #444;
+
+                        transition: 0.2s;
+                        font-size: 20px;
+                        &:hover{
+                            color: $main-color;
+                            background-color: rgba(0, 0, 0, 0.05);
+                        }
+                        &:active{
+                            background-color: rgba(0, 0, 0, 0.1);
+                        }
                     }
                 }
             }
         }
-        div.social{
-            margin-top: -20px;
-            padding-top: 4%;
-            padding-bottom: 2%;
 
-            background-color: $dark;
+        .page{
+            padding: 5% 20%;
+
+            border-bottom: solid 16px $main-color;
+
+            p{
+                text-indent: 2em;
+
+                line-height: 1.5;
+            }
+
+            h1{ @include heading(2.4em); }
+
+            h2{ @include heading(2em); }
+
+            h3{ @include heading(1.8em); }
+
+            h4{ @include heading(1.5em); }
+
+            h5{ @include heading(1.3em); }
+
+            h6{ @include heading(1.2em); }
+
+            .download{
+                margin: 1% 1%;
+
+                text-align: center;
+
+                a{
+                    @include button($green);
+                    &#repo{ @include button($blue); }
+                }
+
+                h1{ @include subheading(2em); }
+            }
+
+            table{
+                overflow: hidden;
+
+                width: auto;
+                text-align: center;
+                border-collapse: collapse;
+                margin: 4% auto;
+
+                thead{
+                    th{
+                        padding: 0.3em 3em;
+
+                        border-left: 0px solid;
+                        border-bottom: 2px solid $main-color;
+
+                        font-size: 1.4em;
+                        font-weight: normal;
+                    }
+                }
+
+                tr{
+                    padding: 1%;
+
+                    td{
+                        padding: 0.2em 2em;
+
+                        border-bottom: 1px solid $grey;
+                    }
+
+
+                }
+            }
+
             img{
-                height: 12em;
+                display: block;
+                width: 100%;
+                padding: 1%;
+                margin: auto;
+                &:hover{
+                    box-shadow: 0px 2px 6px $shadow;
+                }
+                &.screen-shot{
+                    padding: 0%;
+                    box-shadow: 0px 10px 20px $shadow;
+                    &:hover{
+                        box-shadow: 0px 10px 20px $shadow;
+                    }
+                }
+            }
+
+            .social{
+                text-align: center;
+
+                a{
+                    &#twitter{ @include button($blue); }
+
+                    &#github{ @include button($dark-grey); }
+
+                    &#google{ @include button($red); }
+                }
+
+                h1{ @include subheading(2em); }
+            }
+        }
+
+        .footer{
+            padding: 1% 0%;
+
+            text-align: center;
+
+            color: $light;
+            background-color: $dark;
+
+            font-size: 0.8em;
+
+            h1{
+                font-size: 1.3em;
+                font-weight: normal;
+            }
+
+            p{
+                margin: 0;
             }
         }
     }
